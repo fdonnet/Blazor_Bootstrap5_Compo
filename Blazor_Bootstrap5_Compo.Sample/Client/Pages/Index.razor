@@ -3,21 +3,21 @@
 @page "/"
 
 <EditForm Model="@view">
-    <PageTitle>Bootstrap super compo can be used in EditForm (floating label)</PageTitle>
+    <PageTitle>Bootstrap super compo can be used in EditForm (floating label and other stuff)</PageTitle>
     <div class="row">
-        <div class="col">Input text with 2 ways binding</div>
+        <div class="col">Input text with 2 ways binding (floating label)</div>
         <div class="col"><CustomInputText Id="compo1" Label="Input text" @bind-Value="view.ValueCompo1"></CustomInputText></div>
     </div>
 
     <div class="row">
-        <div class="col">Date picker with vanilla-js calendar with 2 ways bindings</div>
+        <div class="col">Date picker with vanilla-js calendar with 2 ways bindings (for forcing date str format)</div>
         <div class="col">
             <CustomInputDate @ref="CustomDatePicker" Id="compo2" Label="Date picker" @bind-Value="view.ValueCompo2"></CustomInputDate>
         </div>
     </div>
 
     <div class="row">
-        <div class="col">Custom select two-ways binding</div>
+        <div class="col">Custom select two-ways binding (floating label)</div>
         <div class="col">
             <CustomInputSelect Id="select_test" Label="Custom select" Items="view.Collection"
                                TItem="ColObjectTest" @bind-Value="view.ValueCompo3" PropertyInnerTextName="Value" PropertyValueName="Id"></CustomInputSelect>

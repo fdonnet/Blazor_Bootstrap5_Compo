@@ -15,8 +15,13 @@
     }
 }
 
+export function triggerChangeEvent(inputId) {
+    var myElement = document.getElementById(inputId);
+    var event = new Event('change');
+    myElement.dispatchEvent(event);
+}
 
-export function getDatePickerTitle(elem) {
+function getDatePickerTitle(elem) {
     // From the label or the aria-label
     const label = elem.nextElementSibling;
     let titleText = '';
@@ -28,8 +33,3 @@ export function getDatePickerTitle(elem) {
     return titleText;
 }
 
-export function triggerValueChange(elemName) {
-    var myElement = document.getElementById('elemName');
-    var event = new Event('change');
-    myElement.dispatchEvent(event);
-}

@@ -7,7 +7,7 @@ namespace Blazor_Bootstrap5_Compo.Form
     /// To use this component you need to :
     /// <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/css/datepicker-bs5.min.css"> in head of index.html
     /// and <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker.min.js"></script> at the bottom of body in index.html
-    /// you need to call TriggerInitDatePicker from your parent compo/page to init the calendar after your data have been loaded
+    /// you need to call TriggerInitDatePicker from your parent compo/page to init the calendar after your data have been loaded in page
     /// It will be easier with .NET 7 via bind:after option
     /// 
     /// </summary>
@@ -29,6 +29,12 @@ namespace Blazor_Bootstrap5_Compo.Form
                 module = await MyJs.InvokeAsync<IJSObjectReference>("import", "./_content/Blazor_Bootstrap5_Compo/Form/CustomInputDate.razor.js");
 
                 await module.InvokeVoidAsync("initDatePicker");
+        }
+
+        public async Task FocusOut()
+        {
+            if (module is not null)
+                await module.InvokeVoidAsync("triggerChangeEvent",Id);
         }
 
         async ValueTask IAsyncDisposable.DisposeAsync()
