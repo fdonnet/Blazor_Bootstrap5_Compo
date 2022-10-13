@@ -32,32 +32,43 @@
                                  PropertyIsCheckedName="IsChecked" Items="@view.Collection"></CustomMultiCheckbox>
         </div>
     </div>
+
     <div class="row">
-        <div class="col">Binding values</div>
+        <div class="col text-center">TEST ZONE</div>
+    </div>
+
+    <div class="row mb-3 mt-5">
+        <div class="col">Input text (2 ways-binding) :</div>
         <div class="col">
             <div>
-                <label>Compo1 : </label>
                 @view.ValueCompo1
             </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col">Datepicker (2 ways-binding with JS updating value) :</div>
+        <div class="col">
             <div>
-                <label>Compo2 : </label>
                 @view.ValueCompo2
             </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col">Select box (Select selected Id (int) 2 ways binding) / <br /> Inject dynamic collection </div>
+        <div class="col">
             <div>
-                <label>Compo3 : </label>
                 @view.ValueCompo3
             </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col">MultiCheckbox (Collection is updated in parent view) : </div>
+        <div class="col">
             <div>
-                <label>Compo3 : </label>
-                @foreach (var item in @view.Collection)
-                {
-                    <div>
-                        <label>@item.Value</label>
-                        @item.IsChecked.ToString();
-                    </div>
-                }
+                <button class="btn btn-primary" @onclick="OnClickShowUpdatedColValues">Show collection values</button>
+                @RawCollectionData
             </div>
-
         </div>
     </div>
 
@@ -65,9 +76,9 @@
 </EditForm>
 @code
 {
-    public View view = new();
-    public CustomInputDate? CustomDatePicker;
-
+    View view = new();
+    CustomInputDate? CustomDatePicker;
+    string RawCollectionData = string.Empty;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -75,6 +86,16 @@
         if (CustomDatePicker is not null)
         {
             await CustomDatePicker.TriggerInitDatePicker();
+        }
+    }
+
+    private void OnClickShowUpdatedColValues()
+    {
+        var tmp = view.Collection.Select(item => item.IsChecked);
+        RawCollectionData = string.Empty;
+
+        foreach(var s in tmp){
+            RawCollectionData += s.ToString() + " - ";
         }
     }
 
