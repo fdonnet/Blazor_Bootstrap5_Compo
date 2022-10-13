@@ -1,0 +1,18 @@
+﻿@typeparam TItem
+<div class="form-control mb-3">
+    <label for="@Id" class="mb-2">@Label</label>
+    <div id="@Id">
+            @foreach (var item in Items)
+            {
+                @if (item != null)
+                {
+                    <div class="form-check form-check-inline me-3">
+                        <input class="form-check-input" type="checkbox" id="damage_@GetPropertyValue(item, PropertyValueName)"
+                   value="@GetPropertyValue(item, PropertyValueName)" checked="@GetIsChecked(item)" @onchange="() =>OnChangeChecked(item,GetIsChecked(item))">
+
+                        <label class="form-check-label" for="damage_@GetPropertyValue(item, PropertyValueName)">@GetPropertyValue(item, PropertyLabelName)</label>
+                    </div>
+                }
+            }
+    </div>
+</div>

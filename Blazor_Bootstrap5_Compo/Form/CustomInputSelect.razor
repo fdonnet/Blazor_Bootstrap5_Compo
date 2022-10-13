@@ -1,0 +1,13 @@
+﻿@inherits InputNumber<int>
+@typeparam TItem
+<div class="form-floating mb-3">
+    <select class="form-select" id="@Id" aria-label="@Label" @bind="CurrentValueAsString">
+        
+            @foreach (var item in Items)
+            {
+            <option value="@GetPropertyValue(item,PropertyValueName)">@GetPropertyValue(item,PropertyInnerTextName)</option>
+            }
+        
+    </select>
+    <label for="@Id">@Label</label>
+</div>

@@ -1,0 +1,81 @@
+﻿@using Blazor_Bootstrap5_Compo.Sample.Client.ModelView
+@using Blazor_Bootstrap5_Compo.Form
+@page "/"
+
+<EditForm Model="@view">
+    <PageTitle>Bootstrap super compo can be used in EditForm (floating label)</PageTitle>
+    <div class="row">
+        <div class="col">Input text with 2 ways binding</div>
+        <div class="col"><CustomInputText Id="compo1" Label="Input text" @bind-Value="view.ValueCompo1"></CustomInputText></div>
+    </div>
+
+    <div class="row">
+        <div class="col">Date picker with vanilla-js calendar with 2 ways bindings</div>
+        <div class="col">
+            <CustomInputDate @ref="CustomDatePicker" Id="compo2" Label="Date picker" @bind-Value="view.ValueCompo2"></CustomInputDate>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">Custom select two-ways binding</div>
+        <div class="col">
+            <CustomInputSelect Id="select_test" Label="Custom select" Items="view.Collection"
+                               TItem="ColObjectTest" @bind-Value="view.ValueCompo3" PropertyInnerTextName="Value" PropertyValueName="Id"></CustomInputSelect>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">Custom multiple checkbox (collection updated)</div>
+        <div class="col">
+            <CustomMultiCheckbox Id="multi_checkbox" Label="Multi checkbox"
+                                 TItem="ColObjectTest" PropertyValueName="Id" PropertyLabelName="Value"
+                                 PropertyIsCheckedName="IsChecked" Items="@view.Collection"></CustomMultiCheckbox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">Binding values</div>
+        <div class="col">
+            <div>
+                <label>Compo1 : </label>
+                @view.ValueCompo1
+            </div>
+            <div>
+                <label>Compo2 : </label>
+                @view.ValueCompo2
+            </div>
+            <div>
+                <label>Compo3 : </label>
+                @view.ValueCompo3
+            </div>
+            <div>
+                <label>Compo3 : </label>
+                @foreach (var item in @view.Collection)
+                {
+                    <div>
+                        <label>@item.Value</label>
+                        @item.IsChecked.ToString();
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+
+
+</EditForm>
+@code
+{
+    public View view = new();
+    public CustomInputDate? CustomDatePicker;
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        //Init JS calendar in guarantee date picker or it doesn't work (maybe will be better with .Net 7)
+        if (CustomDatePicker is not null)
+        {
+            await CustomDatePicker.TriggerInitDatePicker();
+        }
+    }
+
+}
