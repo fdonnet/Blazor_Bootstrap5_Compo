@@ -2,7 +2,7 @@
 
 Components : use integrated Bootstrap 5 theme. (floating label style)
 
-[screen.png](./screen.png)
+![screen](https://github.com/fdonnet/Blazor_Bootstrap5_Compo/blob/main/screen.png)
 
 ## How to
 
