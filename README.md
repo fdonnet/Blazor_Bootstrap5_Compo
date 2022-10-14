@@ -2,6 +2,8 @@
 
 Components : use integrated Bootstrap 5 theme. (floating label style)
 
+[screen.png](./screen.png)
+
 ## How to
 
 A components lib for WASM (client) + an example project (standard Blazor WASM template + server) => run the server project to test the components (hosted mode by Kestrel).
@@ -91,10 +93,10 @@ You can pass any collection types you want for the possible choices `IEnumerable
                                TItem="ColObjectTest" @bind-Value="view.ValueCompo3" PropertyInnerTextName="Value" PropertyValueName="Id"></CustomInputSelect>
 ```
 
-TItem = specify the object type you use
-Items = collection of possible choices in your ViewModel
-PropertyInnerTextName = the property of the object you want to show
-PropertyValueName = value used for the binding (need to be an int)
+* TItem = specify the object type you use
+* Items = collection of possible choices in your ViewModel
+* PropertyInnerTextName = the property of the object you want to show
+* PropertyValueName = value used for the binding (need to be an int)
 
 ## CustomMultiCheckbox
 
@@ -109,15 +111,13 @@ Be able to bind a collection from your ViewModel (dynamic). Restriction : the ob
                                  PropertyIsCheckedName="IsChecked" Items="@view.Collection"></CustomMultiCheckbox>
 ```
 
-TItem = specify the object type you use
-Items = collection of possible choices in your ViewModel
-PropertyLabelName = the property of the object you want to show (label)
-PropertyValueName = value used
-PropertyIsCheckedName = to manage checked true or false
+* TItem = specify the object type you use
+* Items = collection of possible choices in your ViewModel
+* PropertyLabelName = the property of the object you want to show (label)
+* PropertyValueName = value used
+* PropertyIsCheckedName = to manage checked true or false
 
 # Conclusion
 
 Have fun and don't hesitate to PR back. Pay me a coffee if you really want => bc1quu7wttgd3ywgaz4h67efqdl8454enavpxkvhpm
-
-_
 
