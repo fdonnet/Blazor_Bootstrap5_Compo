@@ -5,9 +5,10 @@ namespace Blazor_Bootstrap5_Compo.Sample.Client.ModelView
 
     public class View
     {
-        public string ValueCompo1 { get; set; } = "";
+        public string ValueCompo1 { get; set; } = string.Empty;
         public string ValueCompo2 { get; set; } = "15.09.1999";
         public int ValueCompo3 { get; set; } = 1;
+        public string ValueCompo5 { get; set; } = string.Empty;
 
 
         //Same object is used but it is not the case in reallity

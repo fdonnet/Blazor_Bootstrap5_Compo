@@ -39,7 +39,7 @@ namespace Blazor_Bootstrap5_Compo.Form
 
     public class CustomCheckBoxEventArgs : EventArgs
     {
-        public object Item { get; set; }
+        public object Item { get; set; } = null!;
         public bool CurrentIsChecked { get; set; }
     }
 

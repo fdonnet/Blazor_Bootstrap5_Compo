@@ -1,5 +1,7 @@
 ﻿@using Blazor_Bootstrap5_Compo.Sample.Client.ModelView
 @using Blazor_Bootstrap5_Compo.Form
+@using System.Text.RegularExpressions
+@using System.Web
 @page "/"
 
 <EditForm Model="@view">
@@ -32,6 +34,12 @@
                                  PropertyIsCheckedName="IsChecked" Items="@view.Collection"></CustomMultiCheckbox>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col">TextArea with 2 ways binding (floating label)</div>
+        <div class="col"><CustomInputTextArea Id="compo5" Label="TextArea" @bind-Value="view.ValueCompo5"></CustomInputTextArea></div>
+    </div>
+
 
     <div class="row">
         <div class="col text-center">TEST ZONE</div>
@@ -71,7 +79,15 @@
             </div>
         </div>
     </div>
-
+    <div class="row mb-3 mt-5">
+        <div class="col">TextArea (2 ways-binding) :</div>
+        <div class="col">
+            <div>
+                @((MarkupString)Regex.Replace(
+                    HttpUtility.HtmlEncode(view.ValueCompo5), "\r?\n|\r", "<br />"))
+            </div>
+        </div>
+    </div>
 
 </EditForm>
 @code
