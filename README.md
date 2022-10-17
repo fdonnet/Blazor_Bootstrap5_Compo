@@ -24,7 +24,7 @@ You can use the compos in EditForm Blazor standard compo.
 ##### Usage
 
 ```
-<div class="col"><CustomInputText Id="compo1" Label="Input text" @bind-Value="view.ValueCompo1"></CustomInputText></div>
+<CustomInputText Id="compo1" Label="Input text" @bind-Value="view.ValueCompo1"></CustomInputText>
 ```
 
 ### CustomInputDate
@@ -116,6 +116,16 @@ Be able to bind a collection from your ViewModel (dynamic). Restriction : the ob
 * PropertyLabelName = the property of the object you want to show (label)
 * PropertyValueName = value used
 * PropertyIsCheckedName = to manage checked true or false
+
+### CustomInputTextArea
+
+2 ways binding textarea, floating label style.
+
+##### Usage
+
+```
+<CustomInputTextArea Id="compo5" Label="TextArea" @bind-Value="view.ValueCompo5"></CustomInputTextArea>
+```
 
 # Conclusion
 
