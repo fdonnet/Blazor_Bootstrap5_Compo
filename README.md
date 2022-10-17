@@ -1,4 +1,4 @@
-# Blazor_Bootstrap5_Compo for WASM usage
+# Blazor Bootstrap5 Simple Components for Webassembly
 
 Components : use integrated Bootstrap 5 theme. (floating label style)
 
