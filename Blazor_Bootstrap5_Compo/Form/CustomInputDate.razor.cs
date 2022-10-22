@@ -21,27 +21,27 @@ namespace Blazor_Bootstrap5_Compo.Form
         [Inject]
         public IJSRuntime MyJs { get; set; } = null!;
 
-        private IJSObjectReference? module;
+        private IJSObjectReference? _module;
 
         public async Task TriggerInitDatePicker()
         {
-            if (module is null)
-                module = await MyJs.InvokeAsync<IJSObjectReference>("import", "./_content/Blazor_Bootstrap5_Compo/Form/CustomInputDate.razor.js");
+            if (_module is null)
+                _module = await MyJs.InvokeAsync<IJSObjectReference>("import", "./_content/Blazor_Bootstrap5_Compo/Form/CustomInputDate.razor.js");
 
-                await module.InvokeVoidAsync("initDatePicker");
+                await _module.InvokeVoidAsync("initDatePicker");
         }
 
         public async Task FocusOut()
         {
-            if (module is not null)
-                await module.InvokeVoidAsync("triggerChangeEvent",Id);
+            if (_module is not null)
+                await _module.InvokeVoidAsync("triggerChangeEvent",Id);
         }
 
         async ValueTask IAsyncDisposable.DisposeAsync()
         {
-            if (module is not null)
+            if (_module is not null)
             {
-                await module.DisposeAsync();
+                await _module.DisposeAsync();
             }
         }
 
