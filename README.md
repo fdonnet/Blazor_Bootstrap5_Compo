@@ -1,3 +1,6 @@
+TODO =>  need to write documentation about Pagination compo, but working on Datagrid one (maybe it will be integrated)
+
+
 # Blazor Bootstrap5 Simple Components for Webassembly
 
 Components : use integrated Bootstrap 5 theme. (floating label style)
