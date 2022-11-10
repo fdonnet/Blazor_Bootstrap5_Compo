@@ -25,8 +25,7 @@ namespace Blazor_Bootstrap5_Compo.Form
 
         public async Task TriggerInitDatePicker()
         {
-            if (_module is null)
-                _module = await MyJs.InvokeAsync<IJSObjectReference>("import", "./_content/Blazor_Bootstrap5_Compo/Form/CustomInputDate.razor.js");
+            _module ??= await MyJs.InvokeAsync<IJSObjectReference>("import", "./_content/Blazor_Bootstrap5_Compo/Form/CustomInputDate.razor.js");
 
                 await _module.InvokeVoidAsync("initDatePicker");
         }
