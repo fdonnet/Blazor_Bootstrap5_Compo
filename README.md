@@ -130,7 +130,5 @@ Be able to bind a collection from your ViewModel (dynamic). Restriction : the ob
 <CustomInputTextArea Id="compo5" Label="TextArea" @bind-Value="view.ValueCompo5"></CustomInputTextArea>
 ```
 
-# Conclusion
 
-Have fun and don't hesitate to PR back. Pay me a coffee if you really want => bc1quu7wttgd3ywgaz4h67efqdl8454enavpxkvhpm
 
